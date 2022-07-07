@@ -20,9 +20,8 @@ const EditarCliente = () => {
       } catch (error) {
         console.log(error)
       }
-      setTimeout(() => {
-        setcargando(false)
-      }, 1500);
+      setcargando(false)
+
     }
     obtener()
   }, [])

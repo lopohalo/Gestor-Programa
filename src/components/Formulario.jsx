@@ -28,9 +28,10 @@ const Formulario = ({ cliente, cargando }) => {
                     body: JSON.stringify(values),
                     headers: { 'Content-Type': 'application/json' }
                 })
-                await respuesta.json()
+                // await respuesta.json()
+                // console.log(respuesta)
 
-                navegar('/clientes')
+                // navegar('/clientes')
             } else {
                 const respuesta = await fetch('https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes', {
                     method: 'POST',
@@ -38,7 +39,7 @@ const Formulario = ({ cliente, cargando }) => {
                     headers: { 'Content-Type': 'application/json' }
                 })
                 await respuesta.json()
-
+                console.log(respuesta)
                 navegar('/clientes')
             }
 
