@@ -4,11 +4,12 @@ import { useEffect } from 'react'
 import Cliente from '../components/Cliente'
 
 const Inicio = () => {
+  console.log(import.meta.env.VITE_API_URL)
   const [clientes, setCliente] = useState([])
   useEffect(() => {
     const hola = async () => {
       try {
-        const pidiendoUsuarios = await fetch('https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes')
+        const pidiendoUsuarios = await fetch(`${import.meta.env.VITE_API_URL}`)
         const respuesta = await pidiendoUsuarios.json()
         setCliente(respuesta)
       } catch (error) {
@@ -21,11 +22,12 @@ const Inicio = () => {
     const confirmar = confirm('Are you sure you want to delete this')
     if (confirmar) {
       try {
-        let respuesta = await fetch(`https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes/${id}`,
+        let respuesta = await fetch(`${import.meta.env.VITE_API_URL}/${id}`,
           {
             method: 'DELETE',
           })
         await respuesta.json()
+        console.log(respuesta)
         const nuevoArreglo = clientes.filter(cliente => cliente.id !== id)
         setCliente(nuevoArreglo)
       } catch (error) {

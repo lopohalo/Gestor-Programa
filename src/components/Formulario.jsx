@@ -23,7 +23,7 @@ const Formulario = ({ cliente, cargando }) => {
     const onsubmit1 = async (values) => {
         try {
             if (cliente.id) {
-                const respuesta = await fetch(`https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes/${cliente.id}`, {
+                const respuesta = await fetch(`${import.meta.env.VITE_API_URL}/${cliente.id}`, {
                     method: 'PUT',
                     body: JSON.stringify(values),
                     headers: { 'Content-Type': 'application/json' }
@@ -33,14 +33,14 @@ const Formulario = ({ cliente, cargando }) => {
 
                 // navegar('/clientes')
             } else {
-                const respuesta = await fetch('https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes', {
+                const respuesta = await fetch(`${import.meta.env.VITE_API_URL}`, {
                     method: 'POST',
                     body: JSON.stringify(values),
                     headers: { 'Content-Type': 'application/json' }
                 })
                 await respuesta.json()
                 console.log(respuesta)
-                navegar('/clientes')
+                navegar('/')
             }
 
         } catch (error) {

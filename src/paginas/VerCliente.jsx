@@ -11,7 +11,7 @@ const VerCliente = () => {
         setcargando(!cargando)
         const obtener = async () => {
             try {
-                let respuesta = await fetch(`https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes/${id}`)
+                let respuesta = await fetch(`${import.meta.env.VITE_API_URL}/${id}`)
                 respuesta = await respuesta.json()
                 setcliente(respuesta)
             } catch (error) {
