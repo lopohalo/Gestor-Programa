@@ -8,7 +8,7 @@ const Inicio = () => {
   useEffect(() => {
     const hola = async () => {
       try {
-        const pidiendoUsuarios = await fetch('http://localhost:4000/clientes')
+        const pidiendoUsuarios = await fetch('https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes')
         const respuesta = await pidiendoUsuarios.json()
         setCliente(respuesta)
       } catch (error) {
@@ -21,7 +21,7 @@ const Inicio = () => {
     const confirmar = confirm('Are you sure you want to delete this')
     if (confirmar) {
       try {
-        let respuesta = await fetch(`http://localhost:4000/clientes/${id}`,
+        let respuesta = await fetch(`https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes/${id}`,
           {
             method: 'DELETE',
           })

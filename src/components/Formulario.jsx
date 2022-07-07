@@ -23,7 +23,7 @@ const Formulario = ({ cliente, cargando }) => {
     const onsubmit1 = async (values) => {
         try {
             if (cliente.id) {
-                const respuesta = await fetch(`http://localhost:4000/clientes/${cliente.id}`, {
+                const respuesta = await fetch(`https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes/${cliente.id}`, {
                     method: 'PUT',
                     body: JSON.stringify(values),
                     headers: { 'Content-Type': 'application/json' }
@@ -32,7 +32,7 @@ const Formulario = ({ cliente, cargando }) => {
 
                 navegar('/clientes')
             } else {
-                const respuesta = await fetch('http://localhost:4000/clientes', {
+                const respuesta = await fetch('https://my-json-server.typicode.com/lopohalo/Gestor-Programa/clientes', {
                     method: 'POST',
                     body: JSON.stringify(values),
                     headers: { 'Content-Type': 'application/json' }
